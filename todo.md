@@ -2,8 +2,10 @@
     - Header -> muted video, play rechtsonderin
     - Uitgelicht werk   
         -> CTA "My work"
+
 - My work
  -> grid pagina
+
 - About me
     "Custom" -> videos
     "Catalogus muziek" -> lijst

@@ -52,9 +52,9 @@ if (!images[clip.data.img]) throw new Error(`"${clip.data.img}" does not exist i
     </article>
 </button>
 
-<dialog class="backdrop:bg-black/80" data-dialog>
+<dialog class="backdrop:bg-black/80 max-lg:mx-0 max-lg:max-w-[100vw]" data-dialog>
     <div class="max-w-full">
-        <iframe class="max-w-full aspect-video" width="1440" height="762" data-src={`${clip.data.videoUrl}?&autoplay=1`} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe class="max-w-full h-auto aspect-video" width="1440" height="762" data-src={`${clip.data.videoUrl}?&autoplay=1`} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
 </dialog>
 

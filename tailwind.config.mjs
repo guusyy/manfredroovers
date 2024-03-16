@@ -6,6 +6,11 @@ export default {
 		fontFamily: {
 			sans: ["Atkinson Hyperlegible", "sans-serif"],
 		},
+		container: {
+			padding: {
+				DEFAULT: '1rem'
+			}
+		}
 	},
 	plugins: [],
 }

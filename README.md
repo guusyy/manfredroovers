@@ -1,1 +1,3 @@
-# Portfolio website - Manfred Roover - Music composer for moving images
+# Portfolio website - Manfred Roover 
+
+Music composer for moving images
