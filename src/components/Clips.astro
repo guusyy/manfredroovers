@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+import Clip from '../components/Clip.astro';
+
+const allClips = await getCollection('clips');
+const sortedClips = allClips.sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+---
+
+<section class="container mx-auto bg-black">
+    <ul class="space-y-10">
+        {
+            sortedClips.map((clip) => (
+                <li>
+                    <Clip clip={clip} />
+                </li>
+            ))
+        }
+    </ul>
+</section>

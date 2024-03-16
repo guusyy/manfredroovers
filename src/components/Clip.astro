@@ -1,0 +1,84 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { Picture } from 'astro:assets';
+import { Icon } from 'astro-icon/components'
+
+interface Props {
+    clip: CollectionEntry<'clips'>;
+}
+
+const { clip } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/clips/*.{jpeg,jpg,png,gif}');
+if (!images[clip.data.img]) throw new Error(`"${clip.data.img}" does not exist in glob: "src/assets/images/clips/*.{jpeg,jpg,png,gif}"`);
+
+---
+<button type="button" class="text-left" data-video-button>
+    <article class="relative group overflow-clip">
+        <div class="absolute z-50 w-full h-full transition-opacity duration-500 opacity-0 bg-green-600/70 group-hover:opacity-100">
+            <div class="flex flex-col justify-between h-full lg:flex-row">
+                <div class="relative">
+                    <div class="absolute top-0 left-0 w-full h-full transition-transform duration-500 -translate-x-full bg-green-600 group-hover:translate-x-0"></div>
+
+                    <div class="flex flex-col justify-between bg-green-600 h-full p-10 pt-14 xl:w-96 -translate-x-[130%] group-hover:translate-x-0 transition-transform duration-700 delay-150">
+                        <div class="w-[150%]">
+                            <h2 class="mb-10 text-4xl font-bold">{ clip.data.title }</h2>
+                        </div>
+    
+                        <p>
+                            { clip.data.description }
+                        </p>
+    
+                        <dl class="py-6 text-xl border-t-2 border-white">
+                            <dt>Agency:</dt>
+                            <dd>{ clip.data.agency }</dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-center w-full h-full transition-opacity duration-1000 opacity-0 group-hover:opacity-100">
+                    <Icon name="ic:round-play-arrow" color="white" size={100} />
+                </div>
+            </div>
+        </div>
+
+        <Picture 
+            class="aspect-[1/1] lg:aspect-[3/1] object-cover group-hover:scale-[1.02] transition-transform duration-700 bg-slate-800"
+            src={images[clip.data.img]()} 
+            formats={['webp']} 
+            alt={`Hero of ${clip.data.title}`} 
+        />
+
+    </article>
+</button>
+
+<dialog class="backdrop:bg-black/80" data-dialog>
+    <div class="max-w-full">
+        <iframe class="max-w-full aspect-video" width="1440" height="762" data-src={`${clip.data.videoUrl}?&autoplay=1`} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+</dialog>
+
+<script>
+    const buttons = document.querySelectorAll('[data-video-button]');
+  
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const dialog = button.parentElement.querySelector('[data-dialog]');
+            dialog.showModal();
+    
+            const iframe = dialog.querySelector('iframe');
+            iframe.setAttribute('src', iframe.getAttribute('data-src'));
+    
+            dialog.addEventListener('click', (e) => {
+                var rect = iframe.getBoundingClientRect();
+                var isInContent = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+                    rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
+                if (!isInContent) {
+                    iframe.removeAttribute('src');
+                    dialog.close();
+                }
+            })
+        });
+    })
+</script>
+  
