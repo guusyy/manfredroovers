@@ -20,8 +20,8 @@ if (!images[clip.data.img]) throw new Error(`"${clip.data.img}" does not exist i
                 <div class="relative">
                     <div class="absolute top-0 left-0 w-full h-full transition-transform duration-500 -translate-x-full group-hover:translate-x-0"></div>
 
-                    <div class="flex flex-col justify-between h-full p-10 pt-14 xl:w-96 translate-y-[20%] group-hover:translate-y-0 transition-transform duration-500">
-                        <div class="w-[150%]">
+                    <div class="flex flex-col justify-between h-full p-6 lg:p-10 lg:pt-14 xl:w-96 translate-y-[20%] group-hover:translate-y-0 transition-transform duration-500">
+                        <div class="">
                             <h2 class="mb-4 text-2xl font-bold">{ clip.data.title }</h2>
                         </div>
 
@@ -29,21 +29,21 @@ if (!images[clip.data.img]) throw new Error(`"${clip.data.img}" does not exist i
                             { clip.data.description }
                         </p>
     
-                        <dl class="py-6 text-xl border-t-2 border-white">
+                        <dl class="py-3 lg:py-6 lg:text-xl border-t-2 border-white">
                             <dt>Agency:</dt>
                             <dd>{ clip.data.agency }</dd>
                         </dl>
                     </div>
                 </div>
 
-                <div class="flex items-center justify-center w-full h-full transition-opacity duration-1000 opacity-0 group-hover:opacity-100">
-                    <Icon class="max-xl:-translate-y-10 xl:-translate-x-10" name="ic:round-play-arrow" color="white" size={100} />
+                <div class="flex max-lg:justify-end items-center justify-center w-full h-full transition-opacity duration-1000 opacity-0 group-hover:opacity-100">
+                    <Icon class="max-xl:-translate-y-10 xl:-translate-x-10 size-[70px] lg:size-[100px]" name="ic:round-play-arrow" color="white" />
                 </div>
             </div>
         </div>
 
         <Picture 
-            class="aspect-[16/9] md:aspect-[16/10] object-cover group-hover:scale-[1.04] transition-transform duration-700 bg-slate-800"
+            class="aspect-[16/9] md:aspect-[16/10] object-cover group-hover:scale-[1.04] transition-transform duration-700 bg-slate-950"
             src={images[clip.data.img]()} 
             formats={['webp']} 
             alt={`Hero of ${clip.data.title}`} 
@@ -59,9 +59,20 @@ if (!images[clip.data.img]) throw new Error(`"${clip.data.img}" does not exist i
 
 <script>
     const buttons = document.querySelectorAll('[data-video-button]');
+
+    function isTouchDevice() {
+        return (('ontouchstart' in window) ||
+            (navigator.maxTouchPoints > 0));
+    }
   
     buttons.forEach(button => {
         button.addEventListener('click', () => {
+            if (isTouchDevice() && !button.classList.contains('touched')) {
+                buttons.forEach(b => b.classList.remove('touched'));
+                button.classList.add('touched');
+                return;
+            }
+
             const dialog = button.parentElement?.querySelector<HTMLDialogElement>('[data-dialog]');
             dialog?.showModal();
     
@@ -79,6 +90,10 @@ if (!images[clip.data.img]) throw new Error(`"${clip.data.img}" does not exist i
                 }
             })
         });
-    })
+
+        button.addEventListener('blur', () => {
+            button.classList.remove('touched');
+        });
+    });
 </script>
   
