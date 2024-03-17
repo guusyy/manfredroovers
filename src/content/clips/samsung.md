@@ -6,4 +6,5 @@ description: "This is a description of the clip"
 agency: MassiveMusic Amsterdam
 videoUrl: "https://www.youtube-nocookie.com/embed/MeuycYr8qEo"
 img: '/src/assets/images/clips/samsung.png'
+highlightOnHomescreen: true
 ---
