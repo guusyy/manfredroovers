@@ -22,8 +22,12 @@ if (!images[clip.data.img]) throw new Error(`"${clip.data.img}" does not exist i
 
                     <div class="flex flex-col justify-between h-full p-10 pt-14 xl:w-96 translate-y-[20%] group-hover:translate-y-0 transition-transform duration-500">
                         <div class="w-[150%]">
-                            <h2 class="mb-10 text-2xl font-bold">{ clip.data.title }</h2>
+                            <h2 class="mb-4 text-2xl font-bold">{ clip.data.title }</h2>
                         </div>
+
+                        <p class="empty:hidden mb-2">
+                            { clip.data.description }
+                        </p>
     
                         <dl class="py-6 text-xl border-t-2 border-white">
                             <dt>Agency:</dt>
@@ -39,7 +43,7 @@ if (!images[clip.data.img]) throw new Error(`"${clip.data.img}" does not exist i
         </div>
 
         <Picture 
-            class="aspect-[16/9] md:aspect-[16/10] object-cover group-hover:scale-[1.02] transition-transform duration-700 bg-slate-800"
+            class="aspect-[16/9] md:aspect-[16/10] object-cover group-hover:scale-[1.04] transition-transform duration-700 bg-slate-800"
             src={images[clip.data.img]()} 
             formats={['webp']} 
             alt={`Hero of ${clip.data.title}`} 

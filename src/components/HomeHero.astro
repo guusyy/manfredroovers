@@ -1,8 +1,40 @@
-<header class="h-[60vh] lg:h-[78vh] relative pointer-events-none">
+---
+import { Picture } from 'astro:assets';
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{jpeg,jpg,png,gif}');
+---
+
+<header class="h-[75vh] lg:h-[72vh] relative pointer-events-none mb-16">
     <div class="absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 pointer-events-auto">
         <h1 class="text-center">
-            <span class="block mb-4 text-5xl lg:text-6xl font-black tracking-wide">Manfred Roovers<span class="text-green-500">.</span></span>
-            <span class="block text-xl lg:text-2xl">Music composer for moving images</span>
+            <span class="block mb-4 text-5xl lg:text-7xl font-black tracking-wide">Manfred Roovers<span class="text-green-500">.</span></span>
+            <span class="block text-xl lg:text-2xl text-slate-200">Music composer for moving images</span>
         </h1>
     </div>
+
+    <div class="translate-y-0 absolute w-full h-[calc(100%+112px)] -z-10 -mt-[112px] before:block before:absolute before:w-full before:h-full before:z-0 before:bg-slate-950/90">
+        <Picture 
+            class="w-full h-full object-cover"
+            src={images['/src/assets/images/hero.jpg']()} 
+            formats={['webp']} 
+            alt={`Manfred Roovers`} 
+        />
+    </div>
 </header>
+
+<style>
+    @keyframes animate-in {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-in {
+        animation: animate-in 1s forwards;
+    }
+</style>
