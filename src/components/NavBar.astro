@@ -1,23 +1,55 @@
-<nav class="container sticky top-0 flex flex-wrap justify-between gap-1 py-10 mx-auto">
-    <div>
-        <a href="/" class="text-2xl">
-            Manfred Roovers.
-        </a>
-    </div>
-
-    <ul class="hidden gap-8 text-xl lg:flex">
-        <li>
-            <a href="/work">
-                Work
+<nav class="sticky top-0 [&:has(:checked)]:z-[9999] [&:has(:checked)]:bg-black/80">
+    <div class="container mx-auto flex flex-wrap justify-between gap-1 py-10">
+        <div>
+            <a href="/" class="text-2xl">
+                Manfred Roovers<span class="text-green-500">.</span>
             </a>
-        </li>
-        
-        <li>
-            <a href="/about">About</a>
-        </li>
-        
-        <li>
-            <a href="/contact">Contact</a>
-        </li>
-    </ul>
+        </div>
+    
+        <div>
+            <!-- navbar toggler -->
+            <input id="nav-toggle" type="checkbox" class="hidden peer" />
+            <label
+            id="show-button"
+            for="nav-toggle"
+            class="flex items-center order-2 cursor-pointer peer-checked:hidden lg:order-1 lg:hidden"
+            >
+                <svg class="h-6 fill-current" viewBox="0 0 20 20">
+                    <title>Menu Open</title>
+                    <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+                </svg>
+            </label>
+            <label
+            id="hide-button"
+            for="nav-toggle"
+            class="items-center order-2 hidden cursor-pointer peer-checked:flex lg:order-1"
+            >
+                <svg class="h-6 fill-current" viewBox="0 0 20 20">
+                    <title>Menu Close</title>
+                    <polygon
+                    points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+                    transform="rotate(45 10 10)"></polygon>
+                </svg>
+            </label>
+            <!-- /navbar toggler -->
+    
+            <div class="hidden peer-checked:flex fixed left-0 top-[112px] max-lg:w-screen max-lg:h-[calc(100dvh-112px)] max-lg:bg-black/80 z-50 lg:flex lg:static">
+                <ul class="max-lg:container mx-auto flex gap-8 flex-col text-3xl lg:text-xl lg:flex-row">
+                    <li>
+                        <a href="/work" data-astro-prefetch>
+                            Work
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about" data-astro-prefetch>About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/contact" data-astro-prefetch>Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </nav>
