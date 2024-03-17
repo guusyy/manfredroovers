@@ -20,30 +20,30 @@ if (!images[clip.data.img]) throw new Error(`"${clip.data.img}" does not exist i
                 <div class="relative">
                     <div class="absolute top-0 left-0 w-full h-full transition-transform duration-500 -translate-x-full lg:bg-green-600 group-hover:translate-x-0"></div>
 
-                    <div class="flex flex-col justify-between lg:bg-green-600 h-full p-7 lg:p-10 lg:pt-14 xl:w-96 -translate-x-[130%] group-hover:translate-x-0 transition-transform duration-700 delay-150">
+                    <div class="flex flex-col justify-between lg:bg-green-600 h-full max-lg:pb-0 p-7 lg:p-10 lg:pt-14 xl:w-96 -translate-x-[130%] group-hover:translate-x-0 transition-transform duration-700 delay-150">
                         <div class="lg:w-[150%]">
-                            <h2 class="mb-10 text-4xl font-bold">{ clip.data.title }</h2>
+                            <h2 class="mb-10 text-2xl lg:text-4xl font-bold">{ clip.data.title }</h2>
                         </div>
     
                         <p>
                             { clip.data.description }
                         </p>
     
-                        <dl class="py-6 text-xl border-t-2 border-white">
+                        <dl class="pt-6 lg:py-6 lg:text-xl border-t-2 border-white">
                             <dt>Agency:</dt>
                             <dd>{ clip.data.agency }</dd>
                         </dl>
                     </div>
                 </div>
 
-                <div class="max-lg:-translate-y-5 max-lg:-translate-x-5 flex items-center justify-end lg:justify-center w-full h-full transition-opacity duration-1000 opacity-0 group-hover:opacity-100">
+                <div class="max-lg:pr-6 flex lg:items-center justify-end lg:justify-center w-full h-full transition-opacity duration-1000 opacity-0 group-hover:opacity-100">
                     <Icon class="size-[60px] lg:size-[100px]" name="ic:round-play-arrow" color="white" />
                 </div>
             </div>
         </div>
 
         <Picture 
-            class="aspect-[1/1] lg:aspect-[3/1] object-cover group-hover:scale-[1.03] transition-transform duration-700 bg-slate-800"
+            class="aspect-[16/14] lg:aspect-[3/1] object-cover group-hover:scale-[1.03] transition-transform duration-700 bg-slate-800"
             src={images[clip.data.img]()} 
             formats={['webp']} 
             alt={`Hero of ${clip.data.title}`} 
