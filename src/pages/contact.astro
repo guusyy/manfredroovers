@@ -1,0 +1,69 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Picture } from 'astro:assets';
+
+---
+
+<Layout title="Contact - Manfred Roovers">
+  <main>
+    <section class="py-10 bg-black z-10 relative">
+      <div class="container mx-auto">
+      <h1 class="sr-only">Contact</h1>
+        <div class="py-20 grid lg:grid-cols-3 gap-5 lg:gap-28 max-w-5xl mx-auto">
+          <div>
+            <h2 class="mb-4 text-xl uppercase font-extrabold border-b border-slate-600 pb-2">
+              <span class="text-green-500">Manfred</span> Studio
+            </h2>
+
+            <ul class="space-y-1 text-justify text-slate-400" style="word-wrap: break-word;">
+              <li>
+                <a href="https://maps.app.goo.gl/z9LKXJa6edA9DJJQ6" target="_blank" class="hover:underline underline-offset-2">
+                  Klarendalseweg 471 <br />
+                  6822 GW Arnhem <br />
+                  The Netherlands
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="mb-4 text-xl uppercase font-extrabold border-b border-slate-600 pb-2">
+              <span class="text-green-500">Business</span> Info
+            </h2>
+
+            <ul class="space-y-1 text-justify text-slate-400" style="word-wrap: break-word;">
+              <li>
+                KVK 76176452
+              </li>
+
+              <li>
+                Vestigingsnr. 000044001487
+              </li>
+
+              <li>
+                <a class="hover:underline underline-offset-2" href="mailto:rooversmanfred@gmail.com">rooversmanfred@gmail.com</a>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h2 class="mb-4 text-xl uppercase font-extrabold border-b border-slate-600 pb-2">
+              <span class="text-green-500">General</span> Contact
+            </h2>
+
+            <ul class="space-y-1 text-justify text-slate-400" style="word-wrap: break-word;">
+              <li>
+                <a class="hover:underline underline-offset-2" href="mailto:rooversmanfred@gmail.com">rooversmanfred@gmail.com</a>
+              </li>
+
+              <li>
+                <a class="hover:underline underline-offset-2" href="tel:+31657241181">
+                  +31 6 57241181
+                </a>
+              </li>
+            </ul>
+          </div>
+      </div>
+    </section>
+  </main>
+</Layout>

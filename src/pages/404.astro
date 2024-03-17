@@ -1,0 +1,19 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Picture } from 'astro:assets';
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{jpeg,jpg,png,gif}');
+---
+
+<Layout title="Manfred Roovers">
+  <main>
+    <header class="h-[60vh] lg:h-[78vh] relative pointer-events-none">
+      <div class="absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 pointer-events-auto">
+          <h1 class="text-center">
+              <span class="block mb-4 text-5xl lg:text-6xl font-black tracking-wide">Page not found</span>
+              <span class="block text-xl text-slate-400">The page you're looking for can't be found.</span>
+          </h1>
+      </div>
+  </header>
+  </main>
+</Layout>

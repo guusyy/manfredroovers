@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import WorkClip from '../components/WorkClip.astro';
+
+const allClips = await getCollection('clips');
+const sortedClips = allClips.sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+---
+
+<Layout title="Manfred Roovers">
+	<main>
+		<section>
+			<div class="xl:container mx-auto py-10">
+				<ul class="grid md:grid-cols-2 xl:grid-cols-3">
+					{
+						sortedClips.map((clip) => (
+							<li class="mb-[-7px]">
+								<WorkClip clip={clip} />
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</section>
+	</main>
+</Layout>

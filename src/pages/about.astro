@@ -1,0 +1,69 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Picture } from 'astro:assets';
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{jpeg,jpg,png,gif}');
+---
+
+<Layout title="Manfred Roovers">
+  <main>
+    <section class="py-10 bg-black z-10 relative">
+      <div class="container mx-auto">
+        <div class="grid lg:grid-cols-2 gap-5 lg:gap-28">
+          <div class="text-green-50 py-10">
+            <h1 class="sr-only">About me</h1>
+
+            <div class="mt-6 text-xl">
+              <h2 class="mb-4 text-3xl text-right uppercase font-extrabold">
+                <span class="text-green-500">Manfred</span> Roovers
+              </h2>
+
+              <div class="space-y-8 text-justify" style="word-wrap: break-word;">
+                <p>
+                  In today's crowded world of content, standing out can be
+                  tough. But it's the daring and innovative creations that catch
+                  our attention amidst the noise.
+                </p>
+
+                <p>
+                  Welcome to the world of Manfred Roovers, a music composer
+                  specializing in crafting unique soundscapes for moving images.
+                  With a passion for creativity, Roovers aims to bring a fresh
+                  perspective to every project.
+                </p>
+
+                <p>
+                  At the core of Roovers' work is a commitment to exploring new
+                  ideas and pushing boundaries. Failure is just part of the
+                  journey towards success, and Roovers isn't afraid to take
+                  risks.
+                </p>
+
+                <p>
+                  Discover the magic of Roovers' bespoke compositions, breathing
+                  life into films and commercials with a blend of creativity and
+                  expertise.
+                </p>
+
+                <p>
+                  Join us in creating something special. If you're ready for a
+                  musical journey like no other, get in touch. Together, let's
+                  make something extraordinary.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="max-lg:order-first">
+            <Picture 
+                class="aspect-[3/2] bg-slate-800 object-cover object-top lg:aspect-[2/3]"
+                src={images['/src/assets/images/about-me.jpg']()} 
+                formats={['webp']} 
+                alt={`Manfred Roovers`} 
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
