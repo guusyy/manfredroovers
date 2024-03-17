@@ -22,14 +22,14 @@ if (!images[clip.data.img]) throw new Error(`"${clip.data.img}" does not exist i
 
                     <div class="flex flex-col justify-between lg:bg-green-600 h-full max-lg:pb-0 p-7 lg:p-10 lg:pt-14 xl:w-96 -translate-x-[130%] group-hover:translate-x-0 transition-transform duration-700 delay-150">
                         <div class="lg:w-[150%]">
-                            <h2 class="mb-10 text-2xl lg:text-4xl font-bold">{ clip.data.title }</h2>
+                            <h2 class="mb-4 lg:mb-10 text-2xl lg:text-4xl font-bold">{ clip.data.title }</h2>
                         </div>
     
-                        <p>
+                        <p class="empty:hidden mb-4">
                             { clip.data.description }
                         </p>
     
-                        <dl class="pt-6 lg:py-6 lg:text-xl border-t-2 border-white">
+                        <dl class="pt-6 lg:py-6 lg:text-xl border-t lg:border-t-2 border-white">
                             <dt>Agency:</dt>
                             <dd>{ clip.data.agency }</dd>
                         </dl>
