@@ -1,13 +1,35 @@
 ---
+import { Icon } from "astro-icon/components";
+
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="container mx-auto flex gap-3 flex-wrap justify-between py-10 mt-10 flex-col-reverse items-center lg:flex-row">
+<footer class="container mx-auto flex gap-5 flex-wrap justify-between py-10 mt-10 flex-col-reverse items-center lg:grid lg:grid-cols-3 lg:gap-2">
     <div class="text-slate-400">
         Manfred Roovers { currentYear }  ·  all rights reserved.
     </div>
 
-    <ul class="flex gap-5">
+    <ul class="flex justify-center gap-5 text-slate-300">
+        <li>
+            <a target="_blank" href="https://www.linkedin.com/in/manfred-roovers-4037a5172/">
+                <Icon class="size-[30px]" name="ph:linkedin-logo" />
+            </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.instagram.com/verbsounds/">
+                <Icon class="size-[30px]" name="ph:instagram-logo" />
+            </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://open.spotify.com/artist/1pRjBwChdQFuoYH6NiI3pe?si=ezDx0LhlRZeA913imFnwfw&dl_branch=1">
+                <Icon class="size-[30px]" name="ph:spotify-logo" />
+            </a>
+        </li>
+    </ul>
+
+    <ul class="flex justify-end gap-5">
         <li>
             <a href="/work" data-astro-prefetch>Work</a>
         </li>
