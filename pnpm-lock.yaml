@@ -19,6 +19,9 @@ dependencies:
   astro-icon:
     specifier: ^1.1.0
     version: 1.1.0
+  astro-seo-metadata:
+    specifier: ^0.6.0
+    version: 0.6.0
   sharp:
     specifier: ^0.33.2
     version: 0.33.2
@@ -1317,6 +1320,10 @@ packages:
       '@iconify/utils': 2.1.22
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /astro-seo-metadata@0.6.0:
+    resolution: {integrity: sha512-2wN3kHy4KOorieZxvzYdnXl8h3imUrZdKE+N5xLA3T9/fxHXqNXtXEuJSYFSLU+EfpUcdS6jMncuBC4nQpAIuA==}
     dev: false
 
   /astro@4.5.5(typescript@5.4.2):

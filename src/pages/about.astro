@@ -7,7 +7,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 );
 ---
 
-<Layout title="Manfred Roovers">
+<Layout title="About - Manfred Roovers">
   <main>
     <section class="py-10 bg-black z-10 relative">
       <div class="container mx-auto">
@@ -60,6 +60,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
               src={images["/src/assets/images/about-me.jpg"]()}
               formats={["webp"]}
               alt={`Manfred Roovers`}
+              loading="eager"
             />
           </div>
         </div>

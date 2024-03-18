@@ -1,6 +1,8 @@
 ---
 import NavBar from '../components/NavBar.astro';
 import Footer from '../components/Footer.astro';
+import { ViewTransitions } from 'astro:transitions';
+import { SEOMetadata } from 'astro-seo-metadata';
 
 interface Props {
 	title: string;
@@ -10,7 +12,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" >
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -26,6 +28,21 @@ const { title } = Astro.props;
 
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+
+		<SEOMetadata
+			siteName={'Manfred Roovers'}
+			title={title}
+			description={'Music composer for moving images located in Arnhem'}
+			image={'https://manfredroovers.vercel.app/hero.png'}
+			favicon={'/android-chrome-192x192.png'}
+			author="Manfred Roovers"
+			copyright="ISC"
+			astroSitemap={true}
+			canonicalUrl={Astro.url.toString()}
+			type={'website'}
+			astroGenerator={true}
+		/>
+		<ViewTransitions />
 	</head>
 	<body class="bg-black text-slate-50">
 		<NavBar />

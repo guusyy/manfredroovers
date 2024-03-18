@@ -59,42 +59,48 @@ if (!images[clip.data.img]) throw new Error(`"${clip.data.img}" does not exist i
 </dialog>
 
 <script>
-    const buttons = document.querySelectorAll('[data-video-button]');
+    function setup() {
+        const buttons = document.querySelectorAll('[data-video-button]');
 
-    function isTouchDevice() {
-        return (('ontouchstart' in window) ||
-            (navigator.maxTouchPoints > 0));
-    }
-  
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            if (isTouchDevice() && !button.classList.contains('touched')) {
-                buttons.forEach(b => b.classList.remove('touched'));
-                button.classList.add('touched');
-                return;
-            }
-
-            const dialog = button.parentElement?.querySelector<HTMLDialogElement>('[data-dialog]');
-            dialog?.showModal();
+        function isTouchDevice() {
+            return (('ontouchstart' in window) ||
+                (navigator.maxTouchPoints > 0));
+        }
     
-            const iframe = dialog?.querySelector('iframe');
-            iframe?.setAttribute('src', iframe?.getAttribute('data-src') ?? '');
-    
-            dialog?.addEventListener('click', (e) => {
-                if (!iframe) return;
-                var rect = iframe.getBoundingClientRect();
-                var isInContent = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
-                    rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
-                if (!isInContent) {
-                    iframe.removeAttribute('src');
-                    dialog.close();
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                if (isTouchDevice() && !button.classList.contains('touched')) {
+                    buttons.forEach(b => b.classList.remove('touched'));
+                    button.classList.add('touched');
+                    return;
                 }
-            })
-        });
 
-        button.addEventListener('blur', () => {
-            button.classList.remove('touched');
+                const dialog = button.parentElement?.querySelector<HTMLDialogElement>('[data-dialog]');
+                dialog?.showModal();
+        
+                const iframe = dialog?.querySelector('iframe');
+                iframe?.setAttribute('src', iframe?.getAttribute('data-src') ?? '');
+        
+                dialog?.addEventListener('click', (e) => {
+                    if (!iframe) return;
+                    var rect = iframe.getBoundingClientRect();
+                    var isInContent = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+                        rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
+                    if (!isInContent) {
+                        iframe.removeAttribute('src');
+                        dialog.close();
+                    }
+                })
+            });
+
+            button.addEventListener('blur', () => {
+                button.classList.remove('touched');
+            });
         });
-    });
+    }
+
+    document.addEventListener('astro:after-swap', () => { setup() });
+
+    setup();
 </script>
   
