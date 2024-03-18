@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://manfredroovers.nl/sitemap-index.xml
