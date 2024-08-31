@@ -6,4 +6,5 @@ description: "Music supervision: James Goatman"
 agency: MassiveMusic London
 videoUrl: "https://www.youtube-nocookie.com/embed/efYKwe-aTIU"
 img: '/src/assets/images/clips/sprite.png'
+highlightOnHomescreen: true
 ---
