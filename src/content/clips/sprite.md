@@ -1,6 +1,6 @@
 ---
 title: SPRITE spice club
-sortOrder: 350
+sortOrder: 125
 date: 2024-08-30
 description: "Music supervision: James Goatman"
 agency: MassiveMusic London
