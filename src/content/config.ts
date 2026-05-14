@@ -10,6 +10,7 @@ const clipsCollection = defineCollection({
     agency: z.string().optional(),
     videoUrl: z.string().url(),
     img: z.string(),
+    imgPosition: z.string().optional(),
     highlightOnHomescreen: z.boolean().optional()
   }),
 });
